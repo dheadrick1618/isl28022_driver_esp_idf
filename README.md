@@ -10,6 +10,27 @@ Although many Drivers built around the Arduino framework exist for this chip, I 
 
 Enjoy :D
 
+## Including this as a component in your esp idf project 
+
+1. (If you do not already have a components directory) create a components dir in the root project dir 
+```@bash
+mkdir components
+```
+
+2. In the components dir, clone the component 
+```
+cd components
+git clone <repo url>
+```
+
+3. Now be sure to include the component in the root project CMakeLists.txt . For example:
+
+```
+idf_component_register(SRCS "your_project_source_file.c"
+                    INCLUDE_DIRS "."
+                    REQUIRES "isl28022_driver_esp_idf")
+```
+
 ## Usage
 
 1. Create an instance of an I2C master bus.
